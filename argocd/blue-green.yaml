@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: blue-green-rollout
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/nitishfy/argo-rollouts-demo
+    path: manifests/blue-green
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: blue-green
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
