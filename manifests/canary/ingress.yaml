@@ -3,10 +3,22 @@ kind: Ingress
 metadata:
   name: rollouts-ingress
   annotations:
-    kubernetes.io/ingress.class: nginx
+    alb.ingress.kubernetes.io/healthcheck-interval-seconds: '10'
+    alb.ingress.kubernetes.io/group-name: rollouts
+    alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '3'
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-FS-1-2-Res-2020-10
+    alb.ingress.kubernetes.io/scheme: internal
+    external-dns.alpha.kubernetes.io/hostname: rollouts.xfm.sws.siemens.com
+    alb.ingress.kubernetes.io/target-group-attributes: >-
+      deregistration_delay.timeout_seconds=120
+    alb.ingress.kubernetes.io/target-type: ip
+    kubernetes.io/ingress.class: alb
 spec:
   rules:
-  - http:
+  - host: blue-green-preview.xfm.sws.siemens.com
+    http:
       paths:
       - path: /
         pathType: Prefix
