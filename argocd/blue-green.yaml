@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/nitishfy/argo-rollouts-demo
+    repoURL: https://github.com/vmaganti7/argo-rollouts-demo
     path: manifests/blue-green
     targetRevision: HEAD
   destination:
