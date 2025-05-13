@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: rollouts-setweight
-        image:  argoproj/rollouts-demo:blue
+        image:  argoproj/rollouts-demo:yellow
         imagePullPolicy: Always
         env:
         - name: VERSION
