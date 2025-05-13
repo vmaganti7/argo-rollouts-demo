@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: blue-green
-          image: argoproj/rollouts-demo:yellow
+          image: argoproj/rollouts-demo:blue
           imagePullPolicy: Always
           env:
             - name: VERSION
@@ -28,7 +28,7 @@ spec:
       autoPromotionEnabled: false
       # abortScaleDownDelaySeconds: 10
       # autoPromotionEnabled: false
-      # scaleDownDelaySeconds: 60
+      scaleDownDelaySeconds: 900
       # previewReplicaCount: 2
       # autoPromotionSeconds: 20
 ---
