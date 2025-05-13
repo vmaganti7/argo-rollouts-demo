@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: blue-green
-          image: nitishkumar06/go-blue-green:v1
+          image: argoproj/rollouts-demo:yellow
           imagePullPolicy: Always
           env:
             - name: VERSION
